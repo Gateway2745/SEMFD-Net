@@ -1,9 +1,5 @@
 import pytorch_lightning as pl
 from torch.utils.data import DataLoader
-import numpy as np
-import os
-from tqdm import tqdm
-import glob
 
 from .datasets.benchmark_dataset import BenchmarkDataset
 

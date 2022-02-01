@@ -18,8 +18,6 @@ class Classifier(nn.Module):
             self.backbone = models.resnet101(pretrained=True)
         elif backbone=='resnest50':
             self.backbone = resnest50(pretrained=True)        
-#             weights = torch.load('./resnest50_weights.pth')
-#             self.backbone.load_state_dict(weights)
         elif backbone=='resnest101':
             self.backbone = resnest101(pretrained=True)
         elif backbone=='vit':
@@ -36,6 +34,32 @@ class Classifier(nn.Module):
         x = self.convnet(x)
         return x
     
-class SEMFD_Net(nn.Module):
+class MetaLearner(nn.Module):
     def __init__(self):
-        pass
+      super(MetaLearner, self).__init__()
+
+      self.meta_learner = nn.Sequential(nn.BatchNorm1d(162),
+                                nn.ReLU(inplace=True),
+                                nn.Dropout(p=0.3),
+                                nn.Linear(162, 512),
+                                nn.BatchNorm1d(512),
+                                nn.ReLU(inplace=True),
+                                nn.Dropout(p=0.3),
+                                nn.Linear(512,256),
+                                nn.BatchNorm1d(256),
+                                nn.ReLU(inplace=True),
+                                nn.Dropout(p=0.3),
+                                nn.Linear(256,128),
+                                nn.BatchNorm1d(128),
+                                nn.ReLU(inplace=True),
+                                nn.Dropout(p=0.3),
+                                nn.Linear(128, 64),
+                                nn.BatchNorm1d(64),
+                                nn.ReLU(inplace=True),
+                                nn.Dropout(p=0.3),
+                                nn.Linear(64, 27))
+
+    def forward(self, x):
+        x.squeeze_(1)
+        x = self.meta_learner(x)
+        return x

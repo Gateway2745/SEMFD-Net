@@ -11,24 +11,14 @@ class BenchmarkDataset(torch.utils.data.Dataset):
         self.CFG = CFG
         self.mode = mode
         self.dataset_path = os.path.join(CFG.dataset_path, mode)
-        self.resize = 224 if CFG.training.model=="benchmark" and CFG.benchmark.backbone=="vit" else 256
-        if mode == "train":
-            self.transforms = transforms.Compose([
-                transforms.Resize((self.resize,self.resize)),
-                transforms.RandomHorizontalFlip(p=0.4),
-                transforms.RandomVerticalFlip(p=0.4),
-                transforms.ColorJitter(brightness=0.25, contrast=0.25, saturation=0, hue=0),
-                transforms.ToTensor(),
-                transforms.Normalize(mean=[0.469, 0.536, 0.369],
-                                 std=[0.260, 0.244, 0.282])
-            ])
-        elif mode == "test" or mode=="val":
-            self.transforms = transforms.Compose([
-                transforms.Resize((self.resize,self.resize)),
-                transforms.ToTensor(),
-                transforms.Normalize(mean=[0.469, 0.536, 0.369],
-                             std=[0.260, 0.244, 0.282])
-            ])
+        self.resize = 224 if CFG.name=="benchmark" and CFG.backbone=="vit" else 256
+
+        self.transforms = transforms.Compose([
+            transforms.Resize((self.resize,self.resize)),
+            transforms.ToTensor(),
+            transforms.Normalize(mean=[0.469, 0.536, 0.369],
+                            std=[0.260, 0.244, 0.282])
+        ])
 
         self.datas, self.num_classes = self.get_image_data(self.dataset_path)
 
@@ -43,7 +33,6 @@ class BenchmarkDataset(torch.utils.data.Dataset):
             idx += 1
         print(f"Meta-data for {self.mode} split collected.")
         return datas, idx
-
 
     def __len__(self): 
         return len(self.datas)

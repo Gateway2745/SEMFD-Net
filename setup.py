@@ -18,6 +18,6 @@ setuptools.setup(
         "License :: OSI Approved :: MIT License",
     ],
     packages=setuptools.find_packages(),
-    install_requires = ["resnest==0.0.5", "omegaconf==2.1.1", "mlflow==1.19.0", 'pytorch-lightning==1.4.3', 'torch==1.9.0', 'torchmetrics==0.5.0', 'torchvision==0.10.0', 'timm==0.4.12'],
-    python_requires=">=3.6",
+    install_requires = ["resnest==0.0.5", "omegaconf==2.1.1", "mlflow==1.19.0", 'pytorch-lightning==1.5.9', 'torch==1.10.2', 'torchmetrics==0.7.0','timm==0.4.12'],
+    python_requires=">=3.7",
 )

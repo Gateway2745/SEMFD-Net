@@ -1,7 +1,7 @@
 mlflow==1.19.0
 omegaconf==2.1.1
-pytorch-lightning==1.4.3
-torch==1.9.0
-torchmetrics==0.5.0
-torchvision==0.10.0
+pytorch-lightning==1.5.9
+resnest==0.0.5
+torch==1.10.2
+torchmetrics==0.7.0
 timm==0.4.12
