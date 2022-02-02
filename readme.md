@@ -10,5 +10,7 @@ Paper Accepted at the Applied Data Science Track, ACM India Joint International 
 
 <hr />
 
-To download requirements run `pip install -e .` <br /> 
-To train run `python run.py configs/config.yaml`
+Setup package - <br /> 
+`pip install -e .` <br /> <br /> 
+To train run - <br /> 
+`python run.py configs/config.yaml`
