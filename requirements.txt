@@ -4,4 +4,5 @@ pytorch-lightning==1.5.9
 resnest==0.0.5
 torch==1.10.2
 torchmetrics==0.7.0
-timm==0.4.12
+timm==0.4.5
+onnxruntime==1.11.1
