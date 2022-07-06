@@ -10,7 +10,16 @@ Paper Accepted at the Applied Data Science Track, ACM India Joint International 
 
 <hr />
 
+Dataset - <br /> 
+Our dataset split is available [here](https://drive.google.com/drive/folders/1t4rr_37u5KxBu89ZX-4kth8p-zBsJoZ7?usp=sharing). <br /> 
+
 Setup package - <br /> 
-`pip install -e .` <br /> <br /> 
+`pip install -e .` <br /> 
+
 To train run - <br /> 
 `python run.py configs/config.yaml`
+
+SEMFD-Net Inference - <br />
+Download `ensemble.onnx` from [here](https://drive.google.com/file/d/1qNKH2KThRuGfKEckCpwucw-pwQCbfQCE/view?usp=sharing). <br /> 
+Refer notebook `demo/ensemble_demo.ipynb`
+
