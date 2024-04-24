@@ -1,20 +1,3 @@
-from omegaconf import OmegaConf
-import sys
-from semfd_net.train import train
-
-def main():
-
-    if len(sys.argv) == 1:
-        raise Exception("Please pass path to config file!")
-
-    CFG = OmegaConf.load(sys.argv[1])
-    cli_cfg = OmegaConf.from_cli(sys.argv[2:])
-    
-    CFG = OmegaConf.merge(CFG, cli_cfg)
-    print(OmegaConf.to_yaml(CFG))  
-
-    return train(CFG)
-
-
-if __name__ == "__main__":
-    main()
+version https://git-lfs.github.com/spec/v1
+oid sha256:f320f47722d29c676a40f551c060e77bb5ee225aafdb5920084cbf045ad8d4e5
+size 407

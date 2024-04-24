@@ -1,27 +1,3 @@
-name: "semfd_net" # either benchmark or semfd_net
-dataset_path: "./datasets/PlantDoc-Dataset-Cropped"
-
-backbone: "vit" # only used for benchmark model
-
-num_nodes: 1 
-gpus: [0]
-  
-training:    
-  train_dataloader:
-    batch_size: 16
-    num_workers: 4
-    shuffle: true
-  val_dataloader:
-    batch_size: 16
-    num_workers: 4
-    shuffle: false  
-  num_epochs: 200
-  learning_rate: 5e-5
-  save_dir: "./mlruns" # null for no saving
-  num_runs: 1 # each fold will be run these many times
-  num_classes: 27
-  
-deterministic:
-  set: false
-  seed: 42
-
+version https://git-lfs.github.com/spec/v1
+oid sha256:640b18c3f8e137078ab2a0cfb91c5f0574696de6470e13840dce847c67ac409e
+size 546
